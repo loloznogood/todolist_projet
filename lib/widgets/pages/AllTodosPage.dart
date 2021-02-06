@@ -166,9 +166,11 @@ class AllTodosPageState extends State<AllTodosPage> {
               builder:(_) => TodoAdd(), //Redirection vers la page d'ajout d'une tâche à la liste actuelle
             )
           ).then((title) {
+             if (!title.isEmpty) {
               setState(() {
                 todos.add(Todo(title,"Aucune description")); //Ajout de la tâche avec comme message "Aucune description"
               });
+             }
           });
         }
       ),
